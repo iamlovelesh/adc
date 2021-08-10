@@ -5,7 +5,7 @@
  Login 
 {% endblock %} 
 {% block content %}
-<form method="POST" class="col-12 col-md-6 pl-3 pr-3 pl-md-0 pr-md-0">
+<form method="POST">
   {% csrf_token %}
   <fieldset class="form-group">
     <legend class="mb-3 white-important">
@@ -23,10 +23,10 @@
 </form>
 <div class="pt-3">
   <h6>
+    <p><a href="{% url 'password_reset' %}">Forgotten your password?</a></p>
     <br /><br />
     <strong>New to Website?</strong>
     <a class="ml-2" href="{% url 'signup' %}">Sign up</a>
   </h6>
 </div>
-<!-- </div> -->
 {% endblock %}
