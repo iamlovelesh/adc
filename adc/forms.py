@@ -18,6 +18,9 @@ class UserCreateForm(UserCreationForm):
 
     def clean(self):
         email = self.cleaned_data.get("email")
+        username = self.cleaned_data.get("username")
         if User.objects.filter(email=email).exists():
-            raise forms.ValidationError(u"Account with this email address already exits.")
+            raise forms.ValidationError(u"Account with this email address already exists.")
+        if User.objects.filter(username=username).exists():
+            raise forms.ValidationError(u"Account with this username already exists.")
         return self.cleaned_data
